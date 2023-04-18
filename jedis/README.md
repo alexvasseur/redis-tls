@@ -2,31 +2,34 @@
 
 ### Redis Enterprise Cloud
 
-Create a database
-Activate TLS
-Download and unzip the Redis CA certificate
+- Create a database
+- Activate TLS
+- Download and unzip the Redis CA certificate
 
-Create a truststore (note: here using JKS format, see Java docs for other options)
+- Create a truststore (note: here using JKS format, see Java docs for other options)
 ```
 keytool -import -noprompt -file redis_ca.pem -alias ca_cert -keystore ca.jks -storepass password
 ```
 
 (optional)
-If using mTLS, enable client mTLS and generate/download client certificate and private key
-TODO picture
+- If using mTLS, enable client mTLS and generate/download client certificate and private key
 ```
 openssl pkcs12 -export -in redis_user.crt -inkey redis_user_private.key -out client-keystore.p12 -passout pass:password
 ```
 
-[Redis Enterprise Cloud with AUTH, TLS and mTLS](img/rediscloudmtls.png)
+![Redis Enterprise Cloud with AUTH, TLS and mTLS](img/rediscloudmtls.png)
 
 ### Google Memorystore
+
+- Create a database
+- Activate Auth and TLS
+- Download and unzip the Memorystore CA certificate
 
 ```
 keytool -import -noprompt -file server-ca.pem -alias ca_cert -keystore ca.jks -storepass password
 ```
 
-[Memorystore with AUTH and TLS](img/memorystoretls.png)
+![Memorystore with AUTH and TLS](img/memorystoretls.png)
 
 
 ## Jedis
