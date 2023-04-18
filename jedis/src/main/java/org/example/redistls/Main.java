@@ -78,7 +78,7 @@ public class Main {
                 true,//TLS
                 null,//SSLFactory
                 null,//SSLparams
-                null//allHostsValid
+                null//allHostsValid //TODO not too sure why this is not mandatory to have one
         );
 
         Jedis jedis = null;
